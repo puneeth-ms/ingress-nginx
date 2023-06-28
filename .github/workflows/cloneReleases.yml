@@ -1,0 +1,27 @@
+name: Sync Fork
+
+on: 
+  workflow_dispatch:
+  schedule:
+  - cron: "30 5,17 * * *"
+  
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Clone Github Releases
+        # You may pin to the exact commit or the version.
+        # uses: andrewthetechie/gha-clone-releases@226fa2800127505c0cb8a3032e3348de76d4258b
+        uses: andrewthetechie/gha-clone-releases@v1.8.0
+        with:
+          # Github token
+          token: ${{ secrets.REPO_TOKEN }}
+          # Source repo to clone from
+          #src_repo: 
+          # API repo for the src_repo. Defaults to Github. Set this if using GHE
+          src_repo_github_api_url: https://github.com/kubernetes/ingress-nginx
+          # Destination repo to clone to, default is this repo
+          #dest_repo: # optional
+          # API repo for the dest_repo. Defaults to Github. Set this if using GHE
+          dest_repo_github_api_url: https://github.com/puneeth-ms/ingress-nginx
