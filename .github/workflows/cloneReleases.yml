@@ -18,7 +18,7 @@ jobs:
           # Github token
           token: ${{ secrets.REPO_TOKEN }}
           # Source repo to clone from
-          #src_repo: 
+          src_repo: ingress-nginx
           # API repo for the src_repo. Defaults to Github. Set this if using GHE
           src_repo_github_api_url: https://github.com/kubernetes/ingress-nginx
           # Destination repo to clone to, default is this repo
